@@ -8,23 +8,20 @@ def read():#funcion que lee el archivo y lo guarda en una lista, la funcion regr
     
     return(words)
 
-def letter_list(chosen_word): #funcion que guarda cada letra del archivo en una lista, la funcion regresa la lista
-    list=[]
-    for i in chosen_word:
-        list.append(i)
-    print(list)
+def letter_list(chosen_word): #funcion que guarda cada letra del la palabra en una lista, la funcion regresa la lista
+    list=[i for i in chosen_word]    
     return(list)
 
 def guion_list(chosen_word):#funcion que llena de guiones una lista del tamaño de la palabra elegida
-    list2=[]
-    for i in range(len(chosen_word)):
-        list2.append("_ ")
+    list2=["_ " for i in range(len(chosen_word))]
     return(list2)
+
 def transform(list): #funcion que transforma listas en palabras
     palabra=""
     for i in range(len(list)):
         palabra=palabra+list[i]
     return(palabra)
+    
 def replacement(chosen_word): #funcion que cambia los acentos a palabras sin acentos
     chosen_word=chosen_word.replace("á","a")
     chosen_word=chosen_word.replace('é','e')
