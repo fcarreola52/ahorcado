@@ -40,7 +40,7 @@ def replacement(chosen_word): #funcion que cambia los acentos a palabras sin ace
 
 
 
-def ahorcado(list,chosen_word,list2): #esta funcion compara las listas para ver si la lista 2 que se va actualizando ya es igual a la lista original
+def ahorcado(list,chosen_word,list2,intentos): #esta funcion compara las listas para ver si la lista 2 que se va actualizando ya es igual a la lista original
     while list != list2:
         list3=list2
         os.system('clear')
@@ -66,11 +66,12 @@ def ahorcado(list,chosen_word,list2): #esta funcion compara las listas para ver 
         except ValueError:
             print("Rercuerda escribir letras unicamente, numeros y palabras no son validdos, tampoco espacios")
             mensaje=input("presiona  enter para continuar")
+        intentos+=1
         
         
     if list==list2:
         os.system('clear')
-        print(f"felicidades has ganado la palabra era {chosen_word}")
+        print(f"felicidades has ganado la palabra era {chosen_word} te tomo {intentos} intentos")
         
 
 
@@ -82,7 +83,8 @@ def run():
     chosen_word=chosen_word.upper()    
     list=letter_list(chosen_word)
     list2=guion_list(chosen_word)
-    ahorcado(list,chosen_word,list2)
+    intentos=0
+    ahorcado(list,chosen_word,list2,intentos)
     
 
     
